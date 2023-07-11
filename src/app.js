@@ -1,13 +1,25 @@
 const express = require("express")
-const cors = require("cors")
+const compression = require("compression");
 const routes = require("./routes")
+const cors = require("cors")
+require("./database/index")
 
-const app = express()
+class App {
+    constructor() {
+        this.server = express()
+        this.middlewares()
+        this.routes()
+    }
+    middlewares() {
+        this.server.use(cors());
+        this.server.use(compression())
+        this.server.use(express.json())
+    }
 
-// require("./database")
+    routes() {
+        this.server.use(routes)
+    }
+}
 
-app.use(express.json())
-app.use(cors())
-app.use(routes)
+module.exports = new App().server
 
-module.exports = app

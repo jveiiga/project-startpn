@@ -1,31 +1,15 @@
 require("dotenv").config()
-module.exports = 
-{
-  "development": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PWD,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "port": process.env.DB_PORT,
-    "dialect": process.env.DB_DIALECT,
-    "logging": true,
-  },
-  "test": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PWD,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "port": process.env.DB_PORT,
-    "dialect": process.env.DB_DIALECT,
-    "logging": true,
-  },
-  "production": {
-    "username": process.env.DB_USER,
-    "password": process.env.DB_PWD,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "port": process.env.DB_PORT,
-    "dialect": process.env.DB_DIALECT,
-    "logging": false,
-  }
+module.exports = {
+    dialect: "postgres",
+    host: "localhost",
+    username: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
+    port: 5432,
+
+    pool: {
+      max: 5,
+      min: 0,
+      idle: 1000
+    }
 }
