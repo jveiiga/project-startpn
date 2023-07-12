@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize")
-const hashPwd = require("../middlewares/hashPwd.middleware")
+const hashPwd = require("../middlewares/hashPwd")
 
 class Users extends Model {
 
