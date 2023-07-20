@@ -29,14 +29,14 @@ body {
   min-height: 100vh;
 }
 
-.text_title_login {
+.text_title {
   font-family: Poppins;
   font-weight: 500;
   font-size: 24px;
   color: #476EE6;
 }
 
-.text_placeholder {
+.text_label {
   font-family: Poppins;
   font-weight: 400;
   font-size: 14px;
@@ -49,7 +49,7 @@ body {
   color: #A0A0A0; 
 }
 
-.text_btn_enter {
+.text_btn {
   font-family: Poppins;
   font-weight: 500;
   font-size: 18px;
@@ -58,9 +58,37 @@ body {
 .text_link {
   font-family: Poppins;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
 }
 
+.text_terms_privacy {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 2rem 0;
+}
+
+.text_terms_privacy_link {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 14px;
+  color: #476EE6;
+  margin: 2rem 0 0 1.3rem;
+}
+
+.text_confirm {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.text_question {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 15px;
+  color: #3C3C43B8;
+  margin: 0 2rem 0 0;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
