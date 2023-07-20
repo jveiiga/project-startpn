@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-const Button = ({ name, onClick, width, height, background, color, borderRadius, marginTop, marginBottom, marginRight, marginLeft, border, outline, className }) => {
+const Button = ({ name, onClick, width, height, background, color, borderRadius, marginTop, marginBottom, marginRight, marginLeft, border, outline, className, cursor }) => {
 
     const styleButton = {
         background: background,
@@ -15,6 +15,7 @@ const Button = ({ name, onClick, width, height, background, color, borderRadius,
         marginRight: marginRight,
         marginLeft: marginLeft,
         className: className,
+        cursor: cursor,
     }
     return (
         <button className={className} onClick={onClick} style={styleButton}>{name}</button>
@@ -36,6 +37,7 @@ Button.propTypes = {
     border: PropTypes.string,
     outline: PropTypes.string,
     className: PropTypes.string,
+    cursor: PropTypes.string,
 }
 
 export default Button

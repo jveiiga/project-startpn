@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-const Input = ({ name, id, onChange, width, height, background, color, borderRadius, marginTop, marginBottom, marginRight, marginLeft, paddingLeft, border, value, placeholder}) => {
+const Input = ({ type, name, id, onChange, width, height, background, color, borderRadius, marginTop, marginBottom, marginRight, marginLeft, paddingLeft, border, value, placeholder}) => {
 
     const styleInput = {
         background: background,
@@ -19,11 +19,12 @@ const Input = ({ name, id, onChange, width, height, background, color, borderRad
     }
 
     return (
-        <input className="Input" id={id} onChange={onChange} style={styleInput} placeholder={placeholder} name={name} />
+        <input type={type} className="Input" id={id} onChange={onChange} style={styleInput} placeholder={placeholder} name={name} />
     )
 }
 
 Input.propTypes = {
+    type: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     id: PropTypes.string,
     onChange: PropTypes.func.isRequired,

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import ThowColumnLayout from "../../layouts/ThowColumnLayout"
 import Button from "../../components/Button"
 import Input from "../../components/Input"
@@ -33,33 +33,36 @@ export const Login = () => {
         <img src={logo} alt="logo fictício" />
       </div>
 
-      <p className="text_title_login">Dados de acesso</p>
+      <p className="text_title">Dados de acesso</p>
 
-      <label className="text_placeholder" htmlFor="email">E-mail</label>
-      <Input
-        id="email"
-        height="3.16rem"
-        width="26.12rem"
-        border="1px solid #D7D7D7"
-        borderRadius="12px"
-        placeholder="Insira seu e-mail"
-        paddingLeft="1rem"
-        marginTop="0.5rem"
-        marginBottom="2rem"
-      />
+      <form>
+        <label className="text_label" htmlFor="email">E-mail</label>
+        <Input
+          type="email"
+          id="email"
+          height="3.16rem"
+          width="26.12rem"
+          border="1px solid #D7D7D7"
+          borderRadius="12px"
+          placeholder="Insira seu e-mail"
+          paddingLeft="1rem"
+          marginTop="0.5rem"
+          marginBottom="2rem"
+        />
 
-      <label className="text_placeholder" htmlFor="password">Senha</label>
-      <Input
-        id="password"
-        height="3.16rem"
-        width="26.12rem"
-        border="1px solid #D7D7D7"
-        borderRadius="12px"
-        placeholder="Insira sua senha"
-        paddingLeft="1rem"
-        marginTop="0.5rem"
-      />
-
+        <label className="text_label" htmlFor="password">Senha</label>
+        <Input
+          type="password"
+          id="password"
+          height="3.16rem"
+          width="26.12rem"
+          border="1px solid #D7D7D7"
+          borderRadius="12px"
+          placeholder="Insira sua senha"
+          paddingLeft="1rem"
+          marginTop="0.5rem"
+        />
+      </form>
 
       <div style={{
         marginTop: "3rem",
@@ -68,7 +71,7 @@ export const Login = () => {
         alignItems: "center",
       }}>
         <Button
-          className="text_btn_enter"
+          className="text_btn"
           name="Entrar"
           width="11.56rem"
           height="3rem"
@@ -76,8 +79,9 @@ export const Login = () => {
           color="#FFFFFF"
           borderRadius="60px"
           border="none"
+          cursor="pointer"
         />
-        <Link className="text_link" to="#">Esqueceu sua senha?</Link>
+        <Link className="text_link" to="/Register">Esqueceu sua senha?</Link>
       </div>
 
     </div>
