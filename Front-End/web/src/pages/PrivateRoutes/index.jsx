@@ -1,13 +1,29 @@
 import PropTypes from "prop-types"
 import { Navigate } from "react-router-dom"
+import { Dashboard } from "../Dashboard"
 
-export const PrivateRoutes = ({ children }) => {
+const isAuth = () => {
 
-    const mail = localStorage.getItem("@MAIL")
+    const token = localStorage.getItem("@TOKEN")
 
-    return mail != undefined ? children : <Navigate to="/" />
+    return token != undefined
+
+}
+
+const PrivateRoutes = () => {
+
+    return isAuth() ? (
+
+        <Dashboard />
+    ) : (
+
+        <Navigate to="/" />
+    )
 }
 
 PrivateRoutes.propTypes = {
-    children: PropTypes.node.isRequired
-  }
+    path: PropTypes.string.isRequired,
+    element: PropTypes.node.isRequired,
+}
+
+export default PrivateRoutes
