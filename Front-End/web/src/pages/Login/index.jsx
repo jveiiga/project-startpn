@@ -7,7 +7,7 @@ import Input from "../../components/Input"
 import steveJobsImage from "../../images/Svg/stevejobs.svg"
 import logo from "../../images/Svg/logo.svg"
 
-export const Login = () => {
+const Login = () => {
 
   const { loginUser } = useContext(AuthContext)
   const [formData, setFormData] = useState({email: "", password: ""})
@@ -121,3 +121,5 @@ export const Login = () => {
     />
   )
 }
+
+export default Login
