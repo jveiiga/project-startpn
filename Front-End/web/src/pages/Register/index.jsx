@@ -1,11 +1,45 @@
+import { useContext ,useState } from "react"
 import { Link } from "react-router-dom"
+import { RegisterContext } from "../../context/registerContext"
 import ThowColumnLayout from "../../layouts/ThowColumnLayout"
 import Button from "../../components/Button"
 import Input from "../../components/Input"
 import steveJobsImage from "../../images/Svg/stevejobs.svg"
 import logo from "../../images/Svg/logo.svg"
+import { toast } from "react-toastify"
 
-export const Register = () => {
+const Register = () => {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+  })
+
+  const { userStorage } = useContext(RegisterContext)
+
+  const handleChange = (event) => {
+
+    const { name, value } = event.target
+    
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (event) => {
+
+    event.preventDefault()
+  
+    if (formData.password !== formData.passwordConfirm) {
+      toast.error("As senhas não coincidem!")
+      return;
+    }
+    userStorage(formData)
+  }
+
 
   const colum1Data = (
     <div
@@ -35,7 +69,7 @@ export const Register = () => {
 
       <p className="text_title">Cadastro</p>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div style={{
           display: "flex",
           justifyContent: "space-between",
@@ -48,6 +82,9 @@ export const Register = () => {
             <Input
               type="text"
               id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               height="3.16rem"
               width="18.12rem"
               border="1px solid #D7D7D7"
@@ -66,6 +103,9 @@ export const Register = () => {
             <Input
               type="email"
               id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               height="3.16rem"
               width="18.12rem"
               border="1px solid #D7D7D7"
@@ -91,6 +131,9 @@ export const Register = () => {
             <Input
               type="password"
               id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               height="3.16rem"
               width="18.12rem"
               border="1px solid #D7D7D7"
@@ -109,6 +152,9 @@ export const Register = () => {
             <Input
               type="password"
               id="passwordConfirm"
+              name="passwordConfirm"
+              value={formData.passwordConfirm}
+              onChange={handleChange}
               height="3.16rem"
               width="18.12rem"
               border="1px solid #D7D7D7"
@@ -145,6 +191,7 @@ export const Register = () => {
           <Button
             className="text_btn"
             name="Cadastrar"
+            onClick={handleSubmit}
             width="16.68rem"
             height="3rem"
             background="#476EE6"
@@ -180,3 +227,5 @@ export const Register = () => {
     />
   )
 }
+
+export default Register
